@@ -1,0 +1,14 @@
+# Downloaded dataset images and large files
+data/raw/
+data/processed/images/
+
+# Python
+__pycache__/
+*.pyc
+.env
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
