@@ -1,4 +1,4 @@
-""" WASTE DETECTION """
+# Waste Detection
 A computer vision project for waste detection and classification on college campus
 
 # Setup
