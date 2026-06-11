@@ -6,8 +6,9 @@ import os
 datasets = [
     ("sumn2u/garbage-classification-v2", "garbage-classification-v2"),
     ("vishwasmishra1234/trash-net", "trash-net"),
-    ("techsash/waste-classification-data", "waste-classification-data"),
-    ("alistairking/recyclable-and-household-waste-classification", "recyclable-and-household-waste")
+    ("alistairking/recyclable-and-household-waste-classification", "recyclable-and-household-waste"), 
+    ("joebeachcapital/realwaste", "real-waste"), 
+    ("kneroma/tacotrashdataset", "taco-trash")
 ]
 
 for slug, folder_name in datasets:
