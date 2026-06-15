@@ -73,7 +73,7 @@ def main():
 
     for dataset in datasets:
         dataset_path = os.path.join(raw_data_dir, dataset)
-        print(f"Dataset: {dataset}")
+        print(f"\nDataset: {dataset}")
 
         # Special handling for TACO dataset
         if dataset == 'taco-trash':
@@ -85,7 +85,7 @@ def main():
         print(f"Total classes: {class_count}")
         total_data += total
 
-    print(f"Total images across datasets: {total_data}")
+    print(f"\nTotal images across datasets: {total_data}")
 
 if __name__ == "__main__":
     main()
