@@ -1,6 +1,9 @@
 # Downloaded dataset images and large files
 data/raw/
-data/processed/images/
+data/processed/
+data/spot_check/
+data/standardized_images/
+
 
 # Python
 __pycache__/
