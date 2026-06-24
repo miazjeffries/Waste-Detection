@@ -11,6 +11,7 @@ pip install -r requirements.txt
 
 ### 3. Run data scripts
 Run in order from the repo root:
+    
     scripts/download_data.py 
     - Downloads the five raw source datasets via kagglehub
     - Saves to data/raw/
