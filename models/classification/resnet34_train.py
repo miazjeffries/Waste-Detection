@@ -1,4 +1,6 @@
 """ 
+    ResNet34 Image Classification Model
+    Analyzes and groups images by material class
 """
 import pandas as pd
 import os
@@ -14,16 +16,19 @@ import wandb
 from sklearn.metrics import f1_score
 from pathlib import Path
 
-''' MAP CLASS STRS TO INTS '''
+''' Map class string labels to integer values '''
 class_to_index = {"Cardboard": 0, "Ewaste": 1, "Glass": 2, "Metal": 3, "Organics": 4, 
                  "Other": 5, "Paper": 6, "Plastic": 7, "Textile": 8}
 
 
-''' TRANSFORMS '''
+''' 
+    TRANSFORMS 
+    Standardize images for model type, optimize for performance
+'''
 train_transform = transforms.Compose([
     transforms.Resize((224, 224)), # Standard image size for ResNet
-    transforms.RandAugment(), # Applies various transformations to improve robustness
-    transforms.ToTensor(),
+    transforms.RandAugment(), # Applies random image transformations (e.g. rotation, color shifting) for increased robustness
+    transforms.ToTensor(), # Prepares image data for use in neural network
     transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
 ])
 
@@ -39,7 +44,7 @@ class WasteDataset(Dataset):
     # Loads dataset and tools
     def __init__(self, input_csv, root_dir, transform, class_to_index, split):
         self.data = pd.read_csv(input_csv)
-        self.data = self.data[self.data['split'] == split].reset_index(drop=True)
+        self.data = self.data[self.data['split'] == split].reset_index(drop=True) # Filter dataset by split column
         self.root_dir = root_dir
         self.transform = transform
         self.class_to_index = class_to_index
@@ -59,7 +64,7 @@ class WasteDataset(Dataset):
 
 
 def main():
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu") #
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu") # Selects hardware to run model (GPU or CPU)
     
     # Paths assumed relative to repo root, resnet_train.py expected to run from models/classification/
     root_dir = Path(__file__).resolve().parents[2]
