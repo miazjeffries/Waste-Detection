@@ -104,7 +104,7 @@ def main():
 
     weights = torch.tensor(weights, dtype=torch.float)
     weights = weights / weights.sum() * len(weights) # Normalize weights to average to 1.0
-    class_weights = weights
+    class_weights = weights.to(device)
 
 
     ''' LOSS AND OPTIMIZER '''
