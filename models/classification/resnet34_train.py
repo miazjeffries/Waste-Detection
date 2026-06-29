@@ -66,7 +66,7 @@ class WasteDataset(Dataset):
 def main():
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu") # Selects hardware to run model (GPU or CPU)
     
-    # Paths assumed relative to repo root, resnet_train.py expected to run from models/classification/
+    # Paths assumed relative to repo root, resnet34_train.py expected to run from models/classification/
     root_dir = Path(__file__).resolve().parents[2]
     input_csv = os.path.join(root_dir, "data/processed/standardized_split_data.csv")
     print(os.path.abspath(input_csv)) # Check file location
@@ -126,7 +126,7 @@ def main():
 
     ''' TRAINING AND VALIDATION LOOP '''
     for epoch in range(25):
-        print(f"Epoch {epoch + 1}...")
+        print(f"\nEpoch {epoch + 1}...")
         
         # Training loop
         model.train()
@@ -185,7 +185,7 @@ def main():
             "val_macro_f1": val_macro_f1
         })
 
-        print(f"\nEpoch {epoch+1}/25 -- train_loss: {train_loss:.4f}, train_macro_f1: {train_macro_f1:.4f}, val_loss: {val_loss:.4f}, val_macro_f1: {val_macro_f1:.4f}")
+        print(f"Epoch {epoch+1}/25 -- train_loss: {train_loss:.4f}, train_macro_f1: {train_macro_f1:.4f}, val_loss: {val_loss:.4f}, val_macro_f1: {val_macro_f1:.4f}")
 
 if __name__ == "__main__":
     main()
