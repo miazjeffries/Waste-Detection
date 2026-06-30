@@ -91,8 +91,8 @@ def main():
         Helps with ~5x class imbalance, assigning higher weight to 
         uncommon classes (e.g. Ewaste), lower weight to common classes (e.g. Plastic)
     '''
-    class_counts = {"Cardboard": 5432, "Ewaste": 2269, "Glass": 7874, "Metal": 6122, "Organics": 4018, 
-                    "Other": 5420, "Paper": 6396, "Plastic": 10031, "Textile": 11321}
+    class_counts = {"Cardboard": 5432, "Ewaste": 2269, "Glass": 7874, "Metal": 6121, "Organics": 4018, 
+                    "Other": 5420, "Paper": 6396, "Plastic": 10032, "Textile": 11321}
 
     # Use inverse frequency: weight = 1 / (num samples in class)
     # Order weights to match class_to_index ordering
@@ -104,7 +104,7 @@ def main():
 
     weights = torch.tensor(weights, dtype=torch.float)
     weights = weights / weights.sum() * len(weights) # Normalize weights to average to 1.0
-    class_weights = weights
+    class_weights = weights.to(device)
 
 
     ''' LOSS AND OPTIMIZER '''
