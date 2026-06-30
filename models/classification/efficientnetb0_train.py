@@ -120,7 +120,7 @@ def main():
     ''' CONNECT W/ WEIGHTS & BIASES'''
     wandb.init(
         project="Waste-Detection", 
-        name="efficientnet_train",
+        name="efficientnetb0_train",
         config={
         "model": "efficientnet_b0",
         "lr": 1e-4,
@@ -180,7 +180,7 @@ def main():
         # Save model weights when val_macro_f1 improves
         if val_macro_f1 > best_val_f1:
             best_val_f1 = val_macro_f1
-            torch.save(model.state_dict(), "best_efficientnet.pt")
+            torch.save(model.state_dict(), "best_efficientnetb0.pt")
 
         wandb.log({
             "epoch": epoch,
