@@ -35,7 +35,6 @@ class WasteDataset(Dataset):
     def __init__(self, input_csv, root_dir, transform, class_to_index, split):
         self.data = pd.read_csv(input_csv)
         self.data = self.data[self.data['split'] == split].reset_index(drop=True) # Filter dataset by split column labels
-        self.data = self.data.head(200) # SMOKE TEST ONLY
         self.root_dir = root_dir
         self.transform = transform
         self.class_to_index = class_to_index
