@@ -1,5 +1,5 @@
 """ 
-    ResNet34 Image Classification Model
+    EfficientNetb0 Image Classification Model
 """
 
 import pandas as pd
