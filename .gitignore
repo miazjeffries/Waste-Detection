@@ -4,6 +4,11 @@ data/processed/
 data/spot_check/
 data/standardized_images/
 
+# Train and test results
+models/classification/best_efficientnetb0.pt
+models/classification/best_resnet34.pt
+models/classification/efficientnetb0_test_results.txt
+models/classification/resnet34_test_results.txt
 
 # Python
 __pycache__/
