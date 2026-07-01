@@ -17,7 +17,7 @@ test_ratio = 0.1
 def main():
     df = pd.read_csv(input_csv)
 
-    # Split 80% test, 20% temporary hold
+    # Split 80% train, 20% temporary hold
     train_df, temp_df = train_test_split(
         df,
         test_size=(val_ratio + test_ratio),
