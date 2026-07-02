@@ -71,7 +71,7 @@ def main():
 
     ''' MODEL DEFINITION '''
     model = models.resnet34(weights=None) # Weights loaded from checkpoint file
-    model.fc = nn.Linear(model.fc.in_features, 9)
+    model.fc = nn.Linear(model.fc.in_features, 10) # Replace last layer with 10 classes
     model.load_state_dict(torch.load(checkpoint_path, map_location=device))
     model = model.to(device)
     model.eval()
